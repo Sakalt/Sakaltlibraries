@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathPlus サンプル</title>
+    <script src="MathPlus.js"></script>
+</head>
+<body>
+    <p>黄金比: <span id="phi"></span></p>
+    <p>黄金比の2乗: <span id="phiSquared"></span></p>
+    <p>10kmはマイルで: <span id="miles"></span>マイル</p>
+    <p>90度はラジアンで: <span id="radians"></span>ラジアン</p>
+
+    <script>
+        // HTML要素を取得
+        const phiElement = document.getElementById('phi');
+        const phiSquaredElement = document.getElementById('phiSquared');
+        const milesElement = document.getElementById('miles');
+        const radiansElement = document.getElementById('radians');
+
+        // 計算結果を表示
+        phiElement.textContent = MathPlus.PHI;
+        phiSquaredElement.textContent = MathPlus.PHIxp(2);
+        milesElement.textContent = MathPlus.mile(10);
+        radiansElement.textContent = MathPlus.theta(90);
+    </script>
+</body>
+</html>
