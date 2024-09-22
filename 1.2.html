@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathPlus サンプル</title>
+    <script src="MathPlus.js"></script>
+</head>
+<body>
+    <p>素数1-100: <span id="prime"></span></p>
+    <p>分散率: <span id="variance"></span></p>
+
+    <script>
+        // HTML要素を取得
+        const primeElement = document.getElementById('prime');
+        const varianceElement = document.getElementById('variance');
+
+        // 計算結果を表示
+        primeElement.textContent = MathPlus.prime(10, 200);
+        varianceElement.textContent = MathPlus.variance(12, 47, 2);
+    </script>
+</body>
+</html>
