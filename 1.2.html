@@ -7,15 +7,19 @@
 <body>
     <p>素数1-100: <span id="prime"></span></p>
     <p>分散率: <span id="variance"></span></p>
-
+    <p>マジック角 :<span id="magicangle"></span></p>
+    <p>黄金角 :<span id="goldenagle"></span></p>
     <script>
         // HTML要素を取得
         const primeElement = document.getElementById('prime');
         const varianceElement = document.getElementById('variance');
-
+        const magicangleElement = document.getElementById('magicangle');
+        const PHIangleElement = document.getElementById('goldenagle');
         // 計算結果を表示
         primeElement.textContent = MathPlus.primes(10, 200);
         varianceElement.textContent = MathPlus.variance(12, 47, 2);
+        magicangleElement.textContent = MathPlus.magicangle;
+        PHIangleElement.textContent = MathPlus.PHIangle;
     </script>
 </body>
 </html>
