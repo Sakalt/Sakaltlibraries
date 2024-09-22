@@ -73,7 +73,7 @@ const MathPlus = {
     primes(start, end) {
         const primes = [];
         for (let num = start; num <= end; num++) {
-            if (this.isPrime(num)) { // `this`を使って呼び出す
+            if (this.isPrime(num)) {
                 primes.push(num);
             }
         }
@@ -84,5 +84,59 @@ const MathPlus = {
     variance(arr) {
         const mean = this.mean(arr); // `this`を使って呼び出す
         return arr.reduce((acc, x) => acc + Math.pow(x - mean, 2), 0) / arr.length;
+    },
+
+    // SI接頭詞の変換
+    siPrefixes: {
+        'yotta': 1e24,
+        'zetta': 1e21,
+        'exa': 1e18,
+        'peta': 1e15,
+        'tera': 1e12,
+        'giga': 1e9,
+        'mega': 1e6,
+        'kilo': 1e3,
+        'hecto': 1e2,
+        'deka': 1e1,
+        'deci': 1e-1,
+        'centi': 1e-2,
+        'milli': 1e-3,
+        'micro': 1e-6,
+        'nano': 1e-9,
+        'pico': 1e-12,
+        'femto': 1e-15,
+        'atto': 1e-18,
+        'zepto': 1e-21,
+        'yocto': 1e-24,
+    },
+
+    // SI接頭詞を使った変換
+    convertSI(value, prefix) {
+        const factor = this.siPrefixes[prefix.toLowerCase()];
+        if (factor === undefined) {
+            throw new Error('無効なSI接頭詞です。');
+        }
+        return value * factor;
+    },
+
+    // コンピューターのSI接頭詞変換
+    computerSiPrefixes: {
+        'kibi': 1024,
+        'mebi': 1024 ** 2,
+        'gibi': 1024 ** 3,
+        'tebi': 1024 ** 4,
+        'pebi': 1024 ** 5,
+        'exbi': 1024 ** 6,
+        'zebi': 1024 ** 7,
+        'yobi': 1024 ** 8,
+    },
+
+    // コンピューターのSI接頭詞を使った変換
+    convertComputerSI(value, prefix) {
+        const factor = this.computerSiPrefixes[prefix.toLowerCase()];
+        if (factor === undefined) {
+            throw new Error('無効なコンピューターSI接頭詞です。');
+        }
+        return value * factor;
     }
 };
