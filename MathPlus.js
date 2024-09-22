@@ -2,7 +2,7 @@ const MathPlus = {
     PHI: (1 + Math.sqrt(5)) / 2, // 黄金比
     PHIxp: (x) => Math.pow(MathPlus.PHI, x), // 黄金比のべき
     
-    magicangle: (Math.acos(-1 / Math.sqrt(3))) * (180 / Math.PI),
+    magicangle: Math.acos(-1 / Math.sqrt(3)) * (180 / Math.PI),
     PHIangle: 360 / MathPlus.PHI,
     
     mile: (km) => km * 0.621371, // キロメートルからマイルへの変換
