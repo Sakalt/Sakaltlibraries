@@ -54,7 +54,7 @@ const MathPlus = {
       a = t;
     }
     return a;
-  }
+  },
 
   // 素数判定関数 (エラトステネスの篩)
   isPrime(num) {
@@ -88,5 +88,5 @@ const MathPlus = {
   variance(arr) {
     const mean = MathPlus.mean(arr);
     return arr.reduce((acc, x) => acc + Math.pow(x - mean, 2), 0) / arr.length;
-  },
+  }
 };
