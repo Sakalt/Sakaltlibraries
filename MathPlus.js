@@ -55,4 +55,38 @@ const MathPlus = {
     }
     return a;
   }
+
+  // 素数判定関数 (エラトステネスの篩)
+  isPrime(num) {
+    // 2以下の数は素数ではない
+    if (num <= 1) return false;
+    // 2は素数
+    if (num <= 3) return true;
+    // 2と3以外の偶数や3の倍数は素数ではない
+    if (num % 2 === 0 || num % 3 === 0) return false;
+    // 6k±1の形の素数をチェック
+    let i = 5;
+    while (i * i <= num) {
+      if (num % i === 0 || num % (i + 2) === 0) return false;
+      i += 6;
+    }
+    return true;
+  },
+
+  // 指定された範囲の素数を返す関数
+  primes(start, end) {
+    const primes = [];
+    for (let num = start; num <= end; num++) {
+      if (isPrime(num)) {
+        primes.push(num);
+      }
+    }
+    return primes;
+  },
+
+  // 分散率を計算する関数
+  variance(arr) {
+    const mean = MathPlus.mean(arr);
+    return arr.reduce((acc, x) => acc + Math.pow(x - mean, 2), 0) / arr.length;
+  },
 };
