@@ -1,9 +1,8 @@
 const MathPlus = {
     PHI: (1 + Math.sqrt(5)) / 2, // 黄金比
     PHIxp: (x) => Math.pow(MathPlus.PHI, x), // 黄金比のべき
-    
     magicangle: Math.acos(-1 / Math.sqrt(3)) * (180 / Math.PI),
-    
+    PHIangle: (720 / 2) / MathPlus.PHIU
     mile: (km) => km * 0.621371, // キロメートルからマイルへの変換
     theta: (degrees) => degrees * Math.PI / 180, // 度からラジアンへの変換
 
