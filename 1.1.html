@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathPlus サンプル</title>
+    <script src="MathPlus.js"></script>
+</head>
+<body>
+    <input type="text" id="numberInput" placeholder="数値をカンマで区切って入力">
+    <button onclick="calculate()">計算</button>
+
+    <p>平均値: <span id="meanResult"></span></p>
+    <p>中央値: <span id="medianResult"></span></p>
+    <p>最小値: <span id="minResult"></span></p>
+    <p>約数: <span id="divisorsResult"></span></p>
+    <p>最大公約数: <span id="gcdResult"></span></p>
+
+    <script>
+        function calculate() {
+            // 入力値を配列に変換
+            const inputString = document.getElementById('numberInput').value;
+            const numbers = inputString.split(',').map(Number);
+
+            // 計算結果を表示
+            const meanElement = document.getElementById('meanResult');
+            const medianElement = document.getElementById('medianResult');
+            const minElement = document.getElementById('minResult');
+            const divisorsElement = document.getElementById('divisorsResult');
+            const gcdElement = document.getElementById('gcdResult');
+
+            meanElement.textContent = MathPlus.mean(numbers);
+            medianElement.textContent = MathPlus.median(numbers);
+            minElement.textContent = MathPlus.min(numbers);
+            divisorsElement.textContent = MathPlus.divisors(numbers[0]); // 1番目の要素の約数を表示
+            gcdElement.textContent = MathPlus.gcd(numbers[0], numbers[1]); // 1番目と2番目の要素の最大公約数を表示
+
+        }
+    </script>
+</body>
+</html>
